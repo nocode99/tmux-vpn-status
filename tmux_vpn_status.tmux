@@ -1,5 +1,4 @@
 #! /usr/bin/env bash
 
-plugin_path="$(tmux show-env -g TMUX_PLUGIN_MANAGER_PATH | cut -f2 -d=)"
-
-ls -1 "$plugin_path"
+CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+tmux bind-key T run-shell "$CURRENT_DIR/scripts/tmux_vpn_status.sh"
