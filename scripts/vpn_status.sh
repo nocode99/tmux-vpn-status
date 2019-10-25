@@ -10,7 +10,7 @@ vpn_status() {
     if [ $vpn_status -eq 1 ]; then
       echo "on"
     else
-      echo "off"
+      echo ""
     fi
   else
     echo "nmcli does not exist"
