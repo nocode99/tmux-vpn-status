@@ -8,9 +8,9 @@ vpn_status() {
   if command_exists "nmcli"; then
     local vpn_status=$(nmcli c show --active | grep -c 'tun')
     if [ $vpn_status -eq 1 ]; then
-      echo "on"
+      echo " on "
     else
-      echo ""
+      echo " "
     fi
   else
     echo "nmcli does not exist"
