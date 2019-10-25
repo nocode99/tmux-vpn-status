@@ -2,13 +2,9 @@
 
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-vpn_status_interpolation=(
-  "\#{vpn_status}"
-)
+vpn_status="#($CURRENT_DIR/scripts/vpn_status.sh)"
 
-vpn_status_commands=(
-  "#(CURRENT_DIR/scripts/vpn_status.sh)"
-)
+vpn_status_interpolation="\#{vpn_status}"
 
 set_tmux_option() {
   local option="$1"
@@ -17,11 +13,9 @@ set_tmux_option() {
 }
 
 do_interpolation() {
-  local all_interpolated="$1"
-  for ((i=0; i<${#vpn_status_commands[@]}; i++)); do
-    all_interpolated=${all_interpolated/${vpn_status_interpolation[$i]}/${vpn_status_commands[$i]}}
-  done
-  echo "$all_interpolated"
+  local string=$1
+  local vpn_status_interpolated=$(string/$vpn_status_interpolation/$vpn_status)
+  echo "$vpn_status_interpolated"
 }
 
 update_tmux_option() {
