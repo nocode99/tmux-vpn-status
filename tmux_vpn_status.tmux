@@ -14,7 +14,7 @@ set_tmux_option() {
 
 do_interpolation() {
   local string=$1
-  local vpn_status_interpolated=$(string/$vpn_status_interpolation/$vpn_status)
+  local vpn_status_interpolated=${string/$vpn_status_interpolation/$vpn_status}
   echo "$vpn_status_interpolated"
 }
 
