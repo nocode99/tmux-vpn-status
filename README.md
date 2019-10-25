@@ -2,6 +2,10 @@
 
 tmux plugin to show if VPN is connected
 
+![example](screenshots/example.png)
+
+Note: I don't remember which font set the icon is from but most likely from [Nerdfont](https://www.nerdfonts.com/)
+
 Usage
 -----
 
