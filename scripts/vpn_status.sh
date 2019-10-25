@@ -6,8 +6,8 @@ source "$CURRENT_DIR/helpers.sh"
 
 vpn_status_on() {
   if command_exists "nmcli"; then
-    local status=$(nmcli c show --active | grep tun)
-    if $local_status; then
+    local vpn_status=$(nmcli c show --active | grep -c 'tun')
+    if [ $vpn_status -eq 1 ]; then
       echo "on"
     else
       echo "off"

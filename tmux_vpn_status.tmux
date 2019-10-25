@@ -4,17 +4,15 @@ CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 vpn_status_interpolation=(
   "\#{vpn_status}"
-  # "\#{vpn_off}"
 )
 
 vpn_status_commands=(
-  "#(CURRENT_DIR/scripts/vpn_status_on.sh)"
-  # "#(CURRENT_DIR/scripts/vpn_status_off.sh)"
+  "#(CURRENT_DIR/scripts/vpn_status.sh)"
 )
 
 set_tmux_option() {
-  local option=$1
-  local value=$2
+  local option="$1"
+  local value="$2"
   tmux set-option -gq "$option" "$value"
 }
 
