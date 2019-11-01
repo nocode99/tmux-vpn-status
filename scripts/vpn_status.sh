@@ -9,8 +9,8 @@ vpn_status() {
     if command_exists "nmcli"; then
       local vpn_status=$(nmcli c show --active | grep -c 'tun')
       if [ $vpn_status -eq 1 ]; then
-        # \U1512 unicode for lock icon
-        echo -e " \U1f512 "
+        # \U1512 unicode for shield-like icon
+        echo -e " \U1f530 "
       else
         echo -e " "
       fi
